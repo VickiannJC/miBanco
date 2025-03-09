@@ -1,0 +1,58 @@
+INSERT INTO Persona (id_persona, nombre, apellido, direccion, correo)
+VALUES
+    ('1234567890', 'Juan', 'Pérez', 'Calle 123, Ciudad A', 'juan.perez@example.com'),
+    ('2345678901', 'María', 'Gómez', 'Avenida 456, Ciudad B', 'maria.gomez@example.com'),
+    ('3456789012', 'Carlos', 'López', 'Carrera 789, Ciudad C', 'carlos.lopez@example.com'),
+    ('4567890123', 'Ana', 'Martínez', 'Calle 321, Ciudad D', 'ana.martinez@example.com'),
+    ('5678901234', 'Luis', 'Rodríguez', 'Avenida 654, Ciudad E', 'luis.rodriguez@example.com'),
+    ('6789012345', 'Sofía', 'Hernández', 'Carrera 987, Ciudad F', 'sofia.hernandez@example.com'),
+    ('7890123456', 'Pedro', 'Díaz', 'Calle 135, Ciudad G', 'pedro.diaz@example.com'),
+    ('8901234567', 'Laura', 'Torres', 'Avenida 246, Ciudad H', 'laura.torres@example.com'),
+    ('9012345678', 'Jorge', 'Sánchez', 'Carrera 357, Ciudad I', 'jorge.sanchez@example.com'),
+    ('0123456789', 'Mónica', 'Ramírez', 'Calle 468, Ciudad J', 'monica.ramirez@example.com');
+	INSERT INTO Usuario (id_usuario, id_persona, contraseña, estado)
+VALUES
+    (1, '1234567890', 'password1', 'Desbloqueado'),
+    (2, '2345678901', 'password2', 'Desbloqueado'),
+    (3, '3456789012', 'password3', 'Bloqueado'),
+    (4, '4567890123', 'password4', 'Desbloqueado'),
+    (5, '5678901234', 'password5', 'Bloqueado'),
+    (6, '6789012345', 'password6', 'Desbloqueado'),
+    (7, '7890123456', 'password7', 'Bloqueado'),
+    (8, '8901234567', 'password8', 'Desbloqueado'),
+    (9, '9012345678', 'password9', 'Bloqueado'),
+    (10, '0123456789', 'password10', 'Desbloqueado');
+	INSERT INTO Cuenta (id_cuenta, id_usuario, num_cuenta, tipo, saldo, estado)
+VALUES
+    (1, 1, '001-123456', 'Ahorro', 1000.00, 'Activa'),
+    (2, 2, '002-234567', 'Corriente', 2500.00, 'Activa'),
+    (3, 3, '003-345678', 'Ahorro', 500.00, 'Inactiva'),
+    (4, 4, '004-456789', 'Corriente', 3000.00, 'Activa'),
+    (5, 5, '005-567890', 'Ahorro', 1500.00, 'Inactiva'),
+    (6, 6, '006-678901', 'Corriente', 2000.00, 'Activa'),
+    (7, 7, '007-789012', 'Ahorro', 750.00, 'Inactiva'),
+    (8, 8, '008-890123', 'Corriente', 4000.00, 'Activa'),
+    (9, 9, '009-901234', 'Ahorro', 1200.00, 'Inactiva'),
+    (10, 10, '010-012345', 'Corriente', 3500.00, 'Activa');
+	INSERT INTO Movimientos (id_movimiento, id_cuenta, fecha, tipo, valor, saldo)
+VALUES
+    (1, 1, '2023-10-01 10:00:00', 'Crédito', 500.00, 1500.00),
+    (2, 1, '2023-10-02 11:00:00', 'Débito', 200.00, 1300.00),
+    (3, 2, '2023-10-01 12:00:00', 'Crédito', 1000.00, 3500.00),
+    (4, 2, '2023-10-03 13:00:00', 'Débito', 500.00, 3000.00),
+    (5, 3, '2023-10-01 14:00:00', 'Crédito', 300.00, 800.00),
+    (6, 3, '2023-10-04 15:00:00', 'Débito', 100.00, 700.00),
+    (7, 4, '2023-10-01 16:00:00', 'Crédito', 2000.00, 5000.00),
+    (8, 4, '2023-10-05 17:00:00', 'Débito', 1000.00, 4000.00),
+    (9, 5, '2023-10-01 18:00:00', 'Crédito', 700.00, 2200.00),
+    (10, 5, '2023-10-06 19:00:00', 'Débito', 300.00, 1900.00),
+    (11, 6, '2023-10-01 20:00:00', 'Crédito', 1500.00, 3500.00),
+    (12, 6, '2023-10-07 21:00:00', 'Débito', 500.00, 3000.00),
+    (13, 7, '2023-10-01 22:00:00', 'Crédito', 400.00, 1150.00),
+    (14, 7, '2023-10-08 23:00:00', 'Débito', 200.00, 950.00),
+    (15, 8, '2023-10-01 09:00:00', 'Crédito', 3000.00, 7000.00),
+    (16, 8, '2023-10-09 10:00:00', 'Débito', 1000.00, 6000.00),
+    (17, 9, '2023-10-01 11:00:00', 'Crédito', 600.00, 1800.00),
+    (18, 9, '2023-10-10 12:00:00', 'Débito', 300.00, 1500.00),
+    (19, 10, '2023-10-01 13:00:00', 'Crédito', 2000.00, 5500.00),
+    (20, 10, '2023-10-11 14:00:00', 'Débito', 1000.00, 4500.00);
