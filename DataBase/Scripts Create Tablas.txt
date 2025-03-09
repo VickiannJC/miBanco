@@ -1,0 +1,36 @@
+CREATE TABLE Persona (
+	--id_persona -> Identificación
+    id_persona VARCHAR(10) PRIMARY KEY, -- Clave primaria
+    nombre VARCHAR(100) NOT NULL,
+    apellido VARCHAR(100) NOT NULL,
+    direccion VARCHAR(200),
+    correo VARCHAR(100) UNIQUE NOT NULL
+);
+
+CREATE TABLE Usuario (
+    id_usuario INT NOT NULL PRIMARY KEY, -- Clave primaria
+    id_persona VARCHAR(10), -- Clave foránea a Persona
+    contraseña VARCHAR(100) NOT NULL,
+    estado VARCHAR(20) CHECK (estado IN ('Bloqueado', 'Desbloqueado')) NOT NULL,
+    FOREIGN KEY (id_persona) REFERENCES Persona(id_persona)
+);
+
+CREATE TABLE Cuenta (
+    id_cuenta INT NOT NULL PRIMARY KEY, -- Clave primaria
+    id_usuario INT, -- Clave foránea a Usuario
+    num_cuenta VARCHAR(20) UNIQUE NOT NULL,
+    tipo VARCHAR(20) CHECK (tipo IN ('Ahorro', 'Corriente')) NOT NULL,
+    saldo DECIMAL(15, 2) NOT NULL,
+    estado VARCHAR(20) CHECK (estado IN ('Activa', 'Inactiva')) NOT NULL,
+    FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario)
+);
+
+CREATE TABLE Movimientos (
+    id_movimiento INT NOT NULL PRIMARY KEY, -- Clave primaria
+    id_cuenta INT, -- Clave foránea a Cuenta
+    fecha TIMESTAMP NOT NULL,
+    tipo VARCHAR(50) CHECK (tipo IN ('Crédito', 'Débito')) NOT NULL,
+    valor DECIMAL(15, 2) NOT NULL,
+    saldo DECIMAL(15, 2) NOT NULL,
+    FOREIGN KEY (id_cuenta) REFERENCES Cuenta(id_cuenta)
+);
